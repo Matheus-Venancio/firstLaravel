@@ -29,3 +29,7 @@ Routes::any('/any', function(){
 Routes::match(['get','post'], '/match', function(){
     return ("permitiu apenas algubns")
 })
+
+Route::get('/produto/{id}/{categoria?}', function($id, $categoria =''){
+  return 'o id do produto é: '.$id "<br>"."A categoria é: ".$categoria;
+})
