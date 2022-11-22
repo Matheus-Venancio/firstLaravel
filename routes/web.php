@@ -21,3 +21,11 @@ Route::get('/', function () {
 Routes::get('/empresa', function(){
     return view('site/empresa');
 });
+
+Routes::any('/any', function(){
+    return ('Todos que quiserem')
+})
+
+Routes::match(['get','post'], '/match', function(){
+    return ("permitiu apenas algubns")
+})
