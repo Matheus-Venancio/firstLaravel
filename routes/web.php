@@ -18,18 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Routes::get('/empresa', function(){
+Route::get('/empresa', function(){
     return view('site/empresa');
 });
 
-Routes::any('/any', function(){
-    return ('Todos que quiserem')
-})
+Route::any('/any', function(){
+    return ('Todos que quiserem');
+});
 
-Routes::match(['get','post'], '/match', function(){
-    return ("permitiu apenas algubns")
-})
+Route::match(['get','post'], '/match', function(){
+    return ("permitiu apenas algubns");
+});
 
 Route::get('/produto/{id}/{categoria?}', function($id, $categoria =''){
-  return 'o id do produto é: '.$id "<br>"."A categoria é: ".$categoria;
-})
+  return ('o id do produto é: '.$id."<br>"."A categoria é: ".$categoria);
+});
+
+Route::redirect('/sobre', '/empresa');
+
+
