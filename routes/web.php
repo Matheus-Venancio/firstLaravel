@@ -1,22 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\ProdutoController;
 
 //primeira rota, aqui esta retornando a view welcome
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProdutoController::class , 'index'])->name('produto.index'); //Criando os controlers
+
+Route::get('/produto/{id?}', [ProdutoController::class , 'show'])->name('produto.show'); //Criando os controlers
 
 Route::get('/empresa', function(){
     return view('site/empresa');
@@ -50,11 +40,10 @@ Route::get('/novidades', function(){
 
 
 //Criando grupo de rotas com nomes e prefixos definidos
-Route::group([
+/**Route::group([
     'prefix' ->'admin', //Definindo sobre o prefix das rotas
     'as' ->'admin.' //definindo sobre o nome das rotas
 ],function(){
-
 
     Route::get('admin/dashboard', function(){
         return 'dashboard';
@@ -65,7 +54,7 @@ Route::group([
     Route::get('admin/clientes', function(){
         return 'clientes';
     })->name('clientes');
-});
+});**/
 
 
 
