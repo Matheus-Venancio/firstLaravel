@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers;
 
 //primeira rota, aqui esta retornando a view welcome
 Route::get('/', [ProdutoController::class , 'index'])->name('produto.index'); //Criando os controlers
@@ -55,6 +55,10 @@ Route::get('/novidades', function(){
         return 'clientes';
     })->name('clientes');
 });**/
+
+
+//Puxando a api do produto
+Route::resource('produtos',ProdutoController::class);
 
 
 
