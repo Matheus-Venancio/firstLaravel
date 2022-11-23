@@ -61,4 +61,4 @@ Route::get('/novidades', function(){
 Route::resource('produtos',ProdutoController::class);
 
 
-
+//co
