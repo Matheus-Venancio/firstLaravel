@@ -30,10 +30,22 @@ Route::match(['get','post'], '/match', function(){
     return ("permitiu apenas algubns");
 });
 
+//Passando parametros
 Route::get('/produto/{id}/{categoria?}', function($id, $categoria =''){
   return ('o id do produto é: '.$id."<br>"."A categoria é: ".$categoria);
 });
 
+
+//Redirecionamento
 Route::redirect('/sobre', '/empresa');
+
+//Redirecionamente personalizado
+Route::get('/news', function(){
+    return view('news');
+})->name('noticias');
+
+Route::get('/novidades', function(){
+    return redirect();
+});
 
 
