@@ -49,3 +49,23 @@ Route::get('/novidades', function(){
 });
 
 
+//Criando grupo de rotas com nomes e prefixos definidos
+Route::group([
+    'prefix' ->'admin', //Definindo sobre o prefix das rotas
+    'as' ->'admin.' //definindo sobre o nome das rotas
+],function(){
+
+
+    Route::get('admin/dashboard', function(){
+        return 'dashboard';
+    })->name('dashboard');
+    Route::get('admin/users', function(){
+        return 'users';
+    })->name('users');
+    Route::get('admin/clientes', function(){
+        return 'clientes';
+    })->name('clientes');
+});
+
+
+
